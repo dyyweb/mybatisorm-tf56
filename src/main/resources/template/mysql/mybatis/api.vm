@@ -1,0 +1,42 @@
+package ${servicePackage};
+
+import ${pojoPackage}.${bigDoName};
+import com.trc.mall.ResultModel;
+
+/**
+* author: dy
+* JDK-version:  JDK1.8
+* comments:  ${headName}服务层
+* since Date： ${date}
+*/
+public interface ${bigServiceName} {
+
+	/**
+	* 多条件查询(分页)
+	* @param ${minDoName} ${bigDoName}
+	* @return ResultModel<${bigDoName}>
+    */
+    ResultModel<${bigDoName}> query${bigDoName}ListForPage(${bigDoName} ${minDoName});
+
+    /**
+    * 根据参数查询
+    * @param id ${idType}
+    * @return ResultModel<${bigDoName}>
+    */
+    ResultModel<${bigDoName}> selectByParams(${bigDoName} ${minDoName});
+
+    /**
+    * 添加
+    * @param ${minDoName} ${bigDoName}
+    * @return ResultModel<${bigDoName}>
+    */
+    ResultModel<${bigDoName}> add${bigDoName}(${bigDoName} ${minDoName});
+
+    /**
+    * 修改
+    * @param ${minDoName} ${bigDoName}
+	* @return ResultModel<${bigDoName}>
+    */
+    ResultModel<${bigDoName}> modify${bigDoName}(${bigDoName} ${minDoName});
+
+}

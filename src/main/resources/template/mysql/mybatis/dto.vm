@@ -1,0 +1,14 @@
+package ${packageName};
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+* ${headName}DTO模型
+* @author: dy
+* JDK-version:  JDK1.7
+* @since  ${date}
+*/
+public class ${head}DTO extend ${head}{
+
+}

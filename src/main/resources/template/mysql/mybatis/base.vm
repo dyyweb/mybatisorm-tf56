@@ -1,0 +1,37 @@
+package ${packageName};
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+* 基础model
+* @author: dy
+* JDK-version:  JDK1.7
+* @since  ${date}
+*/
+public class Base implements Serializable{
+
+	/**
+    * 分页起始行号
+    */
+	private Integer startRow;
+	/**
+     * 每页显示数量
+     */
+    private Integer rowNum;
+
+    public Integer getStartRow() {
+    	return startRow;
+    }
+
+    public void setStartRow(Integer startRow) {
+        this.startRow = startRow;
+    }
+    public Integer getRowNum() {
+        return RowNum;
+    }
+
+    public void setRowNum(Integer rowNum) {
+        this.rowNum = rowNum;
+    }
+}
