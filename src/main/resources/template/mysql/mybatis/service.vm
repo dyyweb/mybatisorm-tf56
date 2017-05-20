@@ -52,13 +52,13 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             if (list == null || list.isEmpty())
                return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_SUCCESS,"查询结果为空",list.size(),list,null);
             else
-                return new ResultModel<List<ClearJour>>(ResultModel.RESULT_SUCCESS,"查询成功",list.size(),list,null);
+                return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_SUCCESS,"查询成功",list.size(),list,null);
         } catch (IllegalArgumentException e) {
             logger.error("多条件查询${bigDoName}校验参数异常!",e);
-           return new ResultModel<List<ClearJour>>(ResultModel.RESULT_ERROR,"查询参数异常",-1,null,e.getMessage());
+           return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_ERROR,"查询参数异常",-1,null,e.getMessage());
         } catch (Exception e) {
             logger.error("多条件查询${bigDoName}信息异常!", e);
-            return new ResultModel<List<ClearJour>>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
+            return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
         }
     }
 
@@ -73,12 +73,12 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             Assert.isTrue(id != null,"查询Id不能为空!");
             ${bigDoName} ${minDoName} = ${minDaoName}.selectByParams(${minDoName});
             if (${minDoName} == null)
-               return new ResultModel<ClearJour>(ResultModel.RESULT_SUCCESS,"查询结果为空",-1,${minDoName},null);
+               return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询结果为空",-1,${minDoName},null);
             else
-                return new ResultModel<ClearJour>(ResultModel.RESULT_SUCCESS,"查询成功",${minDoName},list,null);
+                return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询成功",1,${minDoName},null);
         } catch (Exception e) {
            logger.error(e.getMessage(),e);
-            return new ResultModel<ClearJour>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
+            return new ResultModel<${bigDoName}>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
         }
     }
 
@@ -101,7 +101,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             logger.info("新增ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功");
            return new ResultModel<Integer>(ResultModel.RESULT_SUCCESS,"插入成功",-1,num,null);
         }catch (Exception e) {
-           logger.error("新增ID=>[" + clearJour.getClearJourId() + "]的ClearJour失败");
+           logger.error("新增ID=>[" +1 + "]的ClearJour失败");
             return new ResultModel<Integer>(ResultModel.RESULT_ERROR,e.getMessage(),-1,null,null);
         }
     }
