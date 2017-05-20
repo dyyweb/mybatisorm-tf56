@@ -43,7 +43,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     ResultModel<List<${bigDoName}>> select${bigDoName}ListForPage(${bigDoName} ${minDoName}) throws Exception{
         try {
 
-            Assert.notNull(${minDoName, "分页参数不能为空");
+            Assert.notNull(${minDoName}, "分页参数不能为空");
             Assert.notNull(${minDoName}, "传入参数不能为空");
         
             List<${bigDoName}> list = ${minDaoName}.selectListByParams(${minDoName});
