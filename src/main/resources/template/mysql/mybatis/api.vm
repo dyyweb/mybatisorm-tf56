@@ -2,6 +2,7 @@ package ${servicePackage};
 
 import ${pojoPackage}.${bigDoName};
 import tf56.spider.base.ResultModel;
+import java.util.List;
 
 /**
 * author: dy
@@ -16,7 +17,7 @@ public interface ${bigServiceName} {
 	* @param ${minDoName} ${bigDoName}
 	* @return ResultModel<${bigDoName}>
     */
-    ResultModel<<List<${bigDoName}>> select${bigDoName}ListForPage(${bigDoName} ${minDoName});
+    ResultModel<List<${bigDoName}> select${bigDoName}ListForPage(${bigDoName} ${minDoName});
 
     /**
     * 根据参数查询
