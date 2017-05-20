@@ -15,7 +15,7 @@ public interface ${bigDaoName} {
 
 	/**
 	 * 根据参数查询表数据
-	 * @param id ${idType}
+	 * @param ${minDoName}
 	 * @return ${bigDoName}
 	 */
 	${bigDoName} selectByParams(${bigDoName} ${minDoName}) throws Exception;

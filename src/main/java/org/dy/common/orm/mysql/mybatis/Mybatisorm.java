@@ -43,12 +43,12 @@ public class Mybatisorm {
 		TablesBuilder builder = new TablesBuilder();
 		Map<OutPathKey,String> outPathMap = new HashMap<OutPathKey,String>();
 		builder.setJdbcClass("com.mysql.jdbc.Driver");//驱动
-		builder.setUrl("jdbc:mysql://10.7.13.48:8066/account?useUnicode=true&amp;characterEncoding=utf-8");//数据库链接
-		builder.setName("admin");//数据库用户名
-		builder.setPwd("9MeRMf7b15SvsjLpQFtB");//数据库密码
+		builder.setUrl("jdbc:mysql://10.7.29.121:3306/lfspClearing?useUnicode=true&amp;characterEncoding=utf-8");//数据库链接
+		builder.setName("root");//数据库用户名
+		builder.setPwd("wei328e8,wie");//数据库密码
 		TablesBuilder.BASEPACKAGE = "tf56.spider.base";//base包地址
-		builder.setPojoPackage("tf56.spider.clear.domain");//pojo包地址
-		builder.setDtoPackage("tf56.spider.clear.dto");//pojo包地址
+		builder.setPojoPackage("tf56.spider.clear.model.domain");//pojo包地址
+		builder.setDtoPackage("tf56.spider.clear.model.dto");//pojo包地址
 		builder.setDaoPackage("tf56.spider.clear.mapper");//dao包地址
 		builder.setServicePackage("tf56.spider.clear.api");
 		builder.setServiceImplPackage("tf56.spider.clear.service");

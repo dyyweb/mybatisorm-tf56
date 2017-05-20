@@ -42,7 +42,7 @@ $!{xmlBo.columnName}
                 #end#end
                 <if test="startRow != null and rowNum!=null">
                     limit ${startRow},${rowNum}
-                </if
+                </if>
     </select>
     <select id="selectCountByParams" parameterType="${tableName}" resultType="int">
         SELECT COUNT(id) FROM ${table_name} WHERE 1=1
