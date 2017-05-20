@@ -70,12 +70,12 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     @Override
   public  ResultModel<${bigDoName}> selectByParams(${bigDoName} ${minDoName}){
         try {
-            Assert.isTrue(id != null,"查询Id不能为空!");
-            ${bigDoName} ${minDoName} = ${minDaoName}.selectByParams(${minDoName});
-            if (${minDoName} == null)
-               return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询结果为空",-1,${minDoName},null);
+            Assert.isTrue( ${minDoName} != null,"查询Id不能为空!");
+            ${bigDoName} ${minDoName}_exist = ${minDaoName}.selectByParams(${minDoName});
+            if (${minDoName}_exist == null)
+               return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询结果为空",-1,${minDoName}_exist,null);
             else
-                return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询成功",1,${minDoName},null);
+                return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询成功",1,${minDoName}_exist,null);
         } catch (Exception e) {
            logger.error(e.getMessage(),e);
             return new ResultModel<${bigDoName}>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
@@ -112,12 +112,12 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     * @param ${minDoName} ${bigDoName}
     * @return ${bigDoName}
     */
-   private ${bigDoName} validateForUpdate(${bigDoName} ${minDoName}) {
+   private ${bigDoName} validateForUpdate(${bigDoName} ${minDoName}) throws Exception {
 
         Assert.isTrue(${minDoName} != null,"${bigDoName}不能为空!");
         Assert.isTrue(${minDoName}.getId() != null,"查询Id不能为空!");
         // TODO Validate
-        ${bigDoName} old${bigDoName} = ${minDaoName}.selectById(${minDoName}.getId());
+        ${bigDoName} old${bigDoName} = ${minDaoName}.selectByParams(${minDoName});
         Assert.isTrue(old${bigDoName} != null,"查询不到ID=>[" + ${minDoName}.getId() + "]的信息!");
         return old${bigDoName};
     }
@@ -141,10 +141,10 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
                 throw new Exception("sql修改数据为0,请检查各项参数!");
             }
             logger.info("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功!");
-            return new ResultModel<>();
+           return new ResultModel<Integer>(ResultModel.RESULT_SUCCESS,"修改成功",-1,0,null);
         } catch (Exception e) {
             logger.error("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}信息异常",e);
-           return new ResultModel<Integer>(ResultModel.RESULT_SUCCESS,e.getMessage(),-1,0,null);
+           return new ResultModel<Integer>(ResultModel.RESULT_ERROR,e.getMessage(),-1,0,null);
         }
     }
 
