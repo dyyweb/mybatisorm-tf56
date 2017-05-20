@@ -3,12 +3,11 @@ package ${serviceImplPackage} ;
 import ${pojoPackage}.${bigDoName};
 import ${daoPackage}.${bigDaoName};
 import ${servicePackage}.${bigServiceName};
+import org.springframework.util.Assert;
 import tf56.spider.base.ResultModel;
 import com.alibaba.dubbo.config.annotation.Service;
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.List;
-import java.util.ArrayList;
+
 
 /**
 * author: dy
@@ -18,9 +17,21 @@ import java.util.ArrayList;
 */
 @Service
 public class ${bigServiceImplName} implements ${bigServiceName}{
+private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplName}.class);
 
     @Resource
     private ${bigDaoName} ${minDaoName};
+
+
+    /**
+    * Validate Add
+    * @param ${minDoName} ${bigDoName}
+    */
+    private void validateForAdd(${bigDoName} ${minDoName}) {
+        Assert.isTrue(${minDoName} != null,"${minDoName}不能为空!");
+        // TODO Validate
+    }
+
 
     /**
     * 多条件查询(分页)
@@ -29,23 +40,23 @@ public class ${bigServiceImplName} implements ${bigServiceName}{
     * @return ResultModel
     */
     @Override
-    ResultModel<${bigDoName}> query${bigDoName}ListForPage(${bigDoName} ${minDoName}) throws Exception{
+    ResultModel<List<${bigDoName}>> select${bigDoName}ListForPage(${bigDoName} ${minDoName}) throws Exception{
         try {
 
-            Assert.notNull(pageRequest, "分页参数不能为空");
+            Assert.notNull(${minDoName, "分页参数不能为空");
             Assert.notNull(${minDoName}, "传入参数不能为空");
         
-            List<${bigDoName}> list = ${minDaoName}.selectListByParams(${minDoName}, pageRequest);
+            List<${bigDoName}> list = ${minDaoName}.selectListByParams(${minDoName});
             if (list == null || list.isEmpty())
-                return new ResultModel<>(false,"查询结果为空", ErrorCode.ITEM_IS_NULL);
+               return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_SUCCESS,"查询结果为空",list.size(),list,null);
             else
-                return new ResultModel<>(pageRequest.data(list));
+                return new ResultModel<List<ClearJour>>(ResultModel.RESULT_SUCCESS,"查询成功",list.size(),list,null);
         } catch (IllegalArgumentException e) {
             logger.error("多条件查询${bigDoName}校验参数异常!",e);
-            return new ResultModel<>(false, ErrorCode.NOT_FIND_PARAM,e.getMessage());
+           return new ResultModel<List<ClearJour>>(ResultModel.RESULT_ERROR,"查询参数异常",-1,null,e.getMessage());
         } catch (Exception e) {
             logger.error("多条件查询${bigDoName}信息异常!", e);
-            return new ResultModel<>(false,e.getMessage(),ErrorCode.QUERY_LIST_EXCEPTION);
+            return new ResultModel<List<ClearJour>>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
         }
     }
 
@@ -59,16 +70,13 @@ public class ${bigServiceImplName} implements ${bigServiceName}{
         try {
             Assert.isTrue(id != null,"查询Id不能为空!");
             ${bigDoName} ${minDoName} = ${minDaoName}.selectByParams(${minDoName});
-            if (orders == null)
-                return new ResultModel<>(false, "查询结果为空", ErrorCode.ITEM_IS_NULL);
+            if (${minDoName} == null)
+               return new ResultModel<ClearJour>(ResultModel.RESULT_SUCCESS,"查询结果为空",-1,${minDoName},null);
             else
-                return new ResultModel<>(${minDoName});
-        } catch (IllegalArgumentException e) {
-            logger.error("查询${bigDoName}传入Id为空!",e);
-            return new ResultModel<>(false, ErrorCode.NOT_FIND_PARAM,e.getMessage());
+                return new ResultModel<ClearJour>(ResultModel.RESULT_SUCCESS,"查询成功",${minDoName},list,null);
         } catch (Exception e) {
-            logger.error(e.getMessage()),e);
-            return new ResultModel<>(false,ErrorCode.GET_EXCEPTION,"查询异常!");
+           logger.error(e.getMessage(),e);
+            return new ResultModel<ClearJour>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
         }
     }
 
@@ -78,63 +86,24 @@ public class ${bigServiceImplName} implements ${bigServiceName}{
     * @return ResultModel
     */
     @Override
-    ResultModel<${bigDoName}> add${bigDoName}(${bigDoName} ${minDoName}){
+    ResultModel<Integer>  create${bigDoName}(${bigDoName} ${minDoName}){
         try {
             // Validate
             validateForAdd(${minDoName});
     
             // Insert
-            int result = ${minDaoName}.insert(${minDoName});
-            if (result < 1) {
+            int num = ${minDaoName}.insert(${minDoName});
+            if (num < 1) {
                 throw new Exception("sql插入数据为0,请检查各项参数!");
             }
             logger.info("新增ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功");
-            return new ResultModel<>(${minDoName});
-        } catch (IllegalArgumentException e) {
-            logger.error("新增${bigDoName}校验参数异常!",e);
-            return new ResultModel<>(false,ErrorCode.NOT_FIND_PARAM,e.getMessage());
-        } catch (Exception e) {
-            logger.error("新增ID=>[" + ${minDoName}.getId() + "]的${bigDoName}信息异常!",e);
-            return new ResultModel<>(false,ErrorCode.INSERT_EXCEPTION, "新增信息异常!");
+           return new ResultModel<Integer>(ResultModel.RESULT_SUCCESS,"插入成功",-1,num,null);
+        }catch (Exception e) {
+           logger.error("新增ID=>[" + clearJour.getClearJourId() + "]的ClearJour失败");
+            return new ResultModel<Integer>(ResultModel.RESULT_ERROR,e.getMessage(),-1,null,null);
         }
     }
 
-    /**
-    * Validate Add
-    * @param ${minDoName} ${bigDoName}
-    */
-    private void validateForAdd(${bigDoName} ${minDoName}) {
-        Assert.isTrue(${minDoName} != null,"${minDoName}不能为空!");
-        // TODO Validate
-    }
-
-    /**
-    * 修改
-    * @param ${minDoName} ${minDoName}
-    * @return ResultModel
-    */
-    @Override
-    ResultModel<${bigDoName}> modify${bigDoName}(${bigDoName} ${minDoName}){
-        try {
-
-            // validate
-            ${bigDoName} old${minDoName} = validateForUpdate(${minDoName});
-
-            // Update
-            int result = ${minDaoName}.updateById(${minDoName});
-            if (result < 1) {
-                throw new Exception("sql修改数据为0,请检查各项参数!");
-            }
-            logger.info("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功!");
-            return new ResultModel<>();
-        } catch (IllegalArgumentException e) {
-            logger.error("修改${bigDoName}校验参数异常!",e);
-            return new ResultModel<>(false,ErrorCode.NOT_FIND_PARAM,e.getMessage());
-        } catch (Exception e) {
-            logger.error("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}信息异常",e);
-            return new ResultModel<>(false,ErrorCode.UPDATE_EXCEPTION, "修改信息异常!");
-        }
-    }
 
     /**
     * Validate Update
@@ -150,4 +119,32 @@ public class ${bigServiceImplName} implements ${bigServiceName}{
         Assert.isTrue(old${bigDoName} != null,"查询不到ID=>[" + ${minDoName}.getId() + "]的信息!");
         return old${bigDoName};
     }
+
+
+    /**
+    * 修改
+    * @param ${minDoName} ${minDoName}
+    * @return ResultModel
+    */
+    @Override
+    ResultModel<Integer> update${bigDoName}(${bigDoName} ${minDoName}){
+        try {
+
+            // validate
+            ${bigDoName} old${minDoName} = validateForUpdate(${minDoName});
+
+            // Update
+            int num = ${minDaoName}.updateById(${minDoName});
+            if (num < 1) {
+                throw new Exception("sql修改数据为0,请检查各项参数!");
+            }
+            logger.info("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功!");
+            return new ResultModel<>();
+        } catch (Exception e) {
+            logger.error("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}信息异常",e);
+           return new ResultModel<Integer>(ResultModel.RESULT_SUCCESS,e.getMessage(),-1,0,null);
+        }
+    }
+
+
 }
