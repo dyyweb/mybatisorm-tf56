@@ -1,5 +1,6 @@
 package ${packageName};
 
+import tf56.spider.base.BaseQuery;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
 * JDK-version:  JDK1.7
 * @since  ${date}
 */
-public class ${head} extends Base{
+public class ${head} extends BaseQuery{
 
 #foreach($colum in $columList)
 
