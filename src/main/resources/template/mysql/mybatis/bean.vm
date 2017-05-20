@@ -9,7 +9,7 @@ import java.util.Date;
 * JDK-version:  JDK1.7
 * @since  ${date}
 */
-public class ${head} extend Base{
+public class ${head} extends Base{
 
 #foreach($colum in $columList)
 
