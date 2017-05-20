@@ -42,7 +42,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     * @return ResultModel
     */
     @Override
-    ResultModel<List<${bigDoName}>> select${bigDoName}ListForPage(${bigDoName} ${minDoName}) throws Exception{
+   public ResultModel<List<${bigDoName}>> select${bigDoName}ListForPage(${bigDoName} ${minDoName}) throws Exception{
         try {
 
             Assert.notNull(${minDoName}, "分页参数不能为空");
@@ -68,7 +68,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     * @return ResultModel
     */
     @Override
-    ResultModel<${bigDoName}> selectByParams(${bigDoName} ${minDoName}){
+  public  ResultModel<${bigDoName}> selectByParams(${bigDoName} ${minDoName}){
         try {
             Assert.isTrue(id != null,"查询Id不能为空!");
             ${bigDoName} ${minDoName} = ${minDaoName}.selectByParams(${minDoName});
@@ -88,7 +88,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     * @return ResultModel
     */
     @Override
-    ResultModel<Integer>  create${bigDoName}(${bigDoName} ${minDoName}){
+  public  ResultModel<Integer>  create${bigDoName}(${bigDoName} ${minDoName}){
         try {
             // Validate
             validateForAdd(${minDoName});
@@ -112,7 +112,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     * @param ${minDoName} ${bigDoName}
     * @return ${bigDoName}
     */
-    private ${bigDoName} validateForUpdate(${bigDoName} ${minDoName}) {
+   private ${bigDoName} validateForUpdate(${bigDoName} ${minDoName}) {
 
         Assert.isTrue(${minDoName} != null,"${bigDoName}不能为空!");
         Assert.isTrue(${minDoName}.getId() != null,"查询Id不能为空!");
@@ -129,7 +129,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     * @return ResultModel
     */
     @Override
-    ResultModel<Integer> update${bigDoName}(${bigDoName} ${minDoName}){
+   public ResultModel<Integer> update${bigDoName}(${bigDoName} ${minDoName}){
         try {
 
             // validate
