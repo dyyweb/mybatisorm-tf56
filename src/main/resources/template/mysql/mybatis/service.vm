@@ -32,7 +32,6 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     */
     private void validateForAdd(${bigDoName} ${minDoName}) {
         Assert.isTrue(${minDoName} != null,"${minDoName}不能为空!");
-        // TODO Validate
     }
 
 
@@ -116,7 +115,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
 
         Assert.isTrue(${minDoName} != null,"${bigDoName}不能为空!");
         Assert.isTrue(${minDoName}.getId() != null,"查询Id不能为空!");
-        // TODO Validate
+
         ${bigDoName} old${bigDoName} = ${minDaoName}.selectByParams(${minDoName});
         Assert.isTrue(old${bigDoName} != null,"查询不到ID=>[" + ${minDoName}.getId() + "]的信息!");
         return old${bigDoName};

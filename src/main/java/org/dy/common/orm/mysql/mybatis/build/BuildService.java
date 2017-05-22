@@ -48,7 +48,7 @@ public class BuildService extends AbstractBuildFactory{
         String bigDaoName = Util.getUpperHumpName(tableName)+"Dao";
         String minDaoName = Util.getHumpName(tableName)+"Dao";
 
-        String bigServiceName = Util.getUpperHumpName(tableName)+"Api";
+        String bigServiceName = "I"+Util.getUpperHumpName(tableName)+"Service";
 
         String idType = "String";
         List<Column> columnList = table.getColumns();

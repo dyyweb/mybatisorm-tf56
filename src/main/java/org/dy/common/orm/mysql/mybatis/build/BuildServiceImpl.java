@@ -47,8 +47,8 @@ public class BuildServiceImpl extends AbstractBuildFactory {
         String minDoName = Util.getHumpName(tableName);
         String bigDaoName = Util.getUpperHumpName(tableName)+"Mapper";
         String minDaoName = Util.getHumpName(tableName)+"Mapper";
-        String bigServiceName = Util.getUpperHumpName(tableName)+"Api";
-        String minServiceName = Util.getHumpName(tableName)+"Api";
+        String bigServiceName = "I"+Util.getUpperHumpName(tableName)+"Service";
+        String minServiceName = Util.getHumpName(tableName)+"Service";
         String bigServiceImplName = Util.getUpperHumpName(tableName)+"Service";
         String minServiceImplName = Util.getHumpName(tableName)+"Service";
 
