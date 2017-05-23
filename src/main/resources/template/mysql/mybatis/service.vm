@@ -69,7 +69,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     @Override
   public  ResultModel<${bigDoName}> selectByParams(${bigDoName} ${minDoName}){
         try {
-            Assert.isTrue( ${minDoName} != null,"查询Id不能为空!");
+            Assert.notNull( ${minDoName},"查询Id不能为空!");
             ${bigDoName} ${minDoName}_exist = ${minDaoName}.selectByParams(${minDoName});
             if (${minDoName}_exist == null)
                return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询结果为空",-1,${minDoName}_exist,null);
@@ -113,11 +113,11 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
     */
    private ${bigDoName} validateForUpdate(${bigDoName} ${minDoName}) throws Exception {
 
-        Assert.isTrue(${minDoName} != null,"${bigDoName}不能为空!");
-        Assert.isTrue(${minDoName}.getId() != null,"查询Id不能为空!");
+        Assert.notNull(${minDoName},"${bigDoName}不能为空!");
+        Assert.notNull(${minDoName}.getId(),"查询Id不能为空!");
 
         ${bigDoName} old${bigDoName} = ${minDaoName}.selectByParams(${minDoName});
-        Assert.isTrue(old${bigDoName} != null,"查询不到ID=>[" + ${minDoName}.getId() + "]的信息!");
+        Assert.notNull(old${bigDoName} != null,"查询不到ID=>[" + ${minDoName}.getId() + "]的信息!");
         return old${bigDoName};
     }
 
