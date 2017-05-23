@@ -49,7 +49,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
         
             List<${bigDoName}> list = ${minDaoName}.selectListByParams(${minDoName});
             if (list == null || list.isEmpty())
-               return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_SUCCESS,"查询结果为空",list.size(),list,null);
+               return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_ERROR,"查询结果为空",list.size(),list,null);
             else
                 return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_SUCCESS,"查询成功",list.size(),list,null);
         } catch (IllegalArgumentException e) {
@@ -72,7 +72,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             Assert.notNull( ${minDoName},"查询Id不能为空!");
             ${bigDoName} ${minDoName}_exist = ${minDaoName}.selectByParams(${minDoName});
             if (${minDoName}_exist == null)
-               return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询结果为空",-1,${minDoName}_exist,null);
+               return new ResultModel<${bigDoName}>(ResultModel.RESULT_ERROR,"查询结果为空",-1,${minDoName}_exist,null);
             else
                 return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询成功",1,${minDoName}_exist,null);
         } catch (Exception e) {
