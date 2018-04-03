@@ -43,15 +43,15 @@ public class Mybatisorm {
 		TablesBuilder builder = new TablesBuilder();
 		Map<OutPathKey,String> outPathMap = new HashMap<OutPathKey,String>();
 		builder.setJdbcClass("com.mysql.jdbc.Driver");//驱动
-		builder.setUrl("jdbc:mysql://10.7.29.121:3306/lfspClearing?useUnicode=true&amp;characterEncoding=utf-8");//数据库链接
-		builder.setName("root");//数据库用户名
-		builder.setPwd("wei328e8,wie");//数据库密码
-		TablesBuilder.BASEPACKAGE = "tf56.spider.base";//base包地址
-		builder.setPojoPackage("tf56.spider.clear.model.domain");//pojo包地址
-		builder.setDtoPackage("tf56.spider.clear.model.dto");//pojo包地址
-		builder.setDaoPackage("tf56.spider.clear.mapper");//dao包地址
-		builder.setServicePackage("tf56.spider.clear.api");
-		builder.setServiceImplPackage("tf56.spider.clear.service");
+		builder.setUrl("jdbc:mysql://116.62.191.149:15381/pay_cashier?useUnicode=true&amp;allowMultiQueries=true&amp;characterEncoding=UTF-8");//数据库链接
+		builder.setName("caocao");//数据库用户名
+		builder.setPwd("ONe/UCpxo2ooso4uCinOcF5uzLHV1Z0tfJJhCZ89Ld+d7Us63265J/xF8+4VvD8fIS8yFKHEwOMGGaUNWe3t+A==");//数据库密码
+		TablesBuilder.BASEPACKAGE = "com.dy.base";//base包地址
+		builder.setPojoPackage("com.dy.model.domain");//pojo包地址
+		builder.setDtoPackage("com.dy.model.dto");//pojo包地址
+		builder.setDaoPackage("com.dy.mapper");//dao包地址
+		builder.setServicePackage("com.dy.api");
+		builder.setServiceImplPackage("com.dy.service");
 		File path_file = new File(PROJECT_PATH);
 		if (!path_file.isDirectory()){
 			path_file.mkdir();

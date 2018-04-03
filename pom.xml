@@ -17,7 +17,7 @@
 		<commons-io.version>2.4</commons-io.version>
 		<commons-codec.version>1.6</commons-codec.version>
 		<velocity.version>1.7</velocity.version>
-		<lombok.version>1.12.2</lombok.version>
+		<lombok.version>1.16.20</lombok.version>
 	</properties>
 
 	<dependencies>
