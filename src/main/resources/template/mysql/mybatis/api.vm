@@ -14,28 +14,28 @@ public interface ${bigServiceName} {
 
 	/**
 	* 多条件查询(分页)
-	* @param ${minDoName} ${bigDoName}
+	* @param ${minDoName}
 	* @return ResultModel<${bigDoName}>
     */
    public ResultModel<List<${bigDoName}>> select${bigDoName}ListForPage(${bigDoName} ${minDoName});
 
     /**
     * 根据参数查询
-    * @param id ${idType}
+    * @param id
     * @return ResultModel<${bigDoName}>
     */
    public ResultModel<${bigDoName}> selectByParams(${bigDoName} ${minDoName});
 
     /**
     * 添加
-    * @param ${minDoName} ${bigDoName}
+    * @param ${minDoName}
     * @return ResultModel<Integer>
     */
    public ResultModel<Integer> create${bigDoName}(${bigDoName} ${minDoName});
 
     /**
     * 修改
-    * @param ${minDoName} ${bigDoName}
+    * @param ${minDoName}
 	* @return ResultModel<Integer>
     */
    public ResultModel<Integer> update${bigDoName}(${bigDoName} ${minDoName});

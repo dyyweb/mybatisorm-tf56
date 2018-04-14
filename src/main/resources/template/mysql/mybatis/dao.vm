@@ -22,29 +22,27 @@ public interface ${bigDaoName} {
 
 	/**
 	* 多条件查询表信息(分页)
-	* @param ${minDoName} ${bigDoName}
+	* @param ${bigDoName}
 	* @return List<${bigDoName}>
 	*/
 	List<${bigDoName}> selectListByParams(${bigDoName} ${minDoName}) throws Exception;
-	int selectCountByParams(${bigDoName} ${minDoName}) throws Exception;
-	
 	/**
 	 * 插入信息
-	 * @param ${minDoName} ${bigDoName}
+	 * @param ${minDoName}
 	 * @return int
 	 */
 	int insert(${bigDoName} ${minDoName}) throws Exception;
 
 	/**
 	* 根据ID更新信息
-	* @param ${minDoName} ${bigDoName}
+	* @param ${minDoName}
 	* @return int
 	*/
 	int updateById(${bigDoName} ${minDoName}) throws Exception;
 
 	/**
 	 * 根据ID删除信息
-	 * @param id ${idType}
+	 * @param id
 	 * @return int
 	 */
 	int deleteById(${idType} id) throws Exception;

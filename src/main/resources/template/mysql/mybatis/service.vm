@@ -28,7 +28,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
 
     /**
     * 多条件查询(分页)
-    * @param ${minDoName} ${bigDoName}
+    * @param ${minDoName}
     * @return ResultModel
     */
     @Override
@@ -74,7 +74,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
 
     /**
     * 添加
-    * @param ${minDoName} ${bigDoName}
+    * @param ${minDoName}
     * @return ResultModel
     */
     @Override
@@ -98,7 +98,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
 
     /**
     * 修改
-    * @param ${minDoName} ${minDoName}
+    * @param ${minDoName}
     * @return ResultModel
     */
     @Override

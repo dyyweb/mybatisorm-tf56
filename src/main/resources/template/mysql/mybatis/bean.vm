@@ -1,6 +1,7 @@
 package ${packageName};
 
-import tf56.spider.base.BaseQuery;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
 */
 @Getter
 @Setter
-public class ${head} extends BaseQuery{
+public class ${head}{
 
 #foreach($colum in $columList)
 
