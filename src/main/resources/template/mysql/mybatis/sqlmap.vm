@@ -10,13 +10,6 @@
 <!-- 原则:能共用一个sql的绝不要再造一个sql,删除和修改sql,请确保全局工程不受到影响！-->
 <!-- DengYang-->
 
-	 #*
-	 <resultMap id="${tableName}Map" type="${tableName}">
-        #foreach($xmlBo in ${list})
-        <result property="$!{xmlBo.propertyName}" column="$!{xmlBo.columnName}"/>
-        #end
-    </resultMap>
-   	 *#
    	<!-- 所有查询字段 -->
    	<sql id="allSelectionColumn">
 		#foreach($xmlBo in ${list})#if(($velocityCount)!=$!{list.size()})

@@ -9,6 +9,8 @@ import java.util.Date;
 * JDK-version:  JDK1.7
 * @since  ${date}
 */
+@Getter
+@Setter
 public class ${head} extends BaseQuery{
 
 #foreach($colum in $columList)
@@ -17,16 +19,5 @@ public class ${head} extends BaseQuery{
     * $!colum.remark
     */
 	private $!colum.type $!colum.name;
-#end
-
-#foreach($colum in $columList2)
-
-    public $!colum.type get$!{colum.bigName}() {
-    	return $!colum.smallName;
-    }
-
-    public void set$!{colum.bigName}($!colum.type $!{colum.smallName}) {
-    	this.$!colum.smallName = $!colum.smallName;
-    }
 #end
 }

@@ -27,15 +27,6 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
 
 
     /**
-    * Validate Add
-    * @param ${minDoName} ${bigDoName}
-    */
-    private void validateForAdd(${bigDoName} ${minDoName}) {
-        Assert.isTrue(${minDoName} != null,"${minDoName}不能为空!");
-    }
-
-
-    /**
     * 多条件查询(分页)
     * @param ${minDoName} ${bigDoName}
     * @return ResultModel
@@ -90,7 +81,6 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
   public  ResultModel<Integer>  create${bigDoName}(${bigDoName} ${minDoName}){
         try {
             // Validate
-            validateForAdd(${minDoName});
     
             // Insert
             int num = ${minDaoName}.insert(${minDoName});
@@ -107,22 +97,6 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
 
 
     /**
-    * Validate Update
-    * @param ${minDoName} ${bigDoName}
-    * @return ${bigDoName}
-    */
-   private ${bigDoName} validateForUpdate(${bigDoName} ${minDoName}) throws Exception {
-
-        Assert.notNull(${minDoName},"${bigDoName}不能为空!");
-        Assert.notNull(${minDoName}.getId(),"查询Id不能为空!");
-
-        ${bigDoName} old${bigDoName} = ${minDaoName}.selectByParams(${minDoName});
-        Assert.notNull(old${bigDoName} != null,"查询不到ID=>[" + ${minDoName}.getId() + "]的信息!");
-        return old${bigDoName};
-    }
-
-
-    /**
     * 修改
     * @param ${minDoName} ${minDoName}
     * @return ResultModel
@@ -132,7 +106,6 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
         try {
 
             // validate
-            ${bigDoName} old${minDoName} = validateForUpdate(${minDoName});
 
             // Update
             int num = ${minDaoName}.updateById(${minDoName});

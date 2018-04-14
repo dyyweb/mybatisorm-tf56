@@ -40,6 +40,8 @@ public class BuildBean extends AbstractBuildFactory {
 		}
 		String packageName = tableWapper.getPojoPackage();
 		for (Column co : columnList) {
+			//todo mysql 字段带有下划线处理
+			co.setName(Util.getHumpName(co.getName()));
 			Column colu = new Column();
 			BigAndSmall bigSmall = new BigAndSmall();
 			String type = co.getType();
