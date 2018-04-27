@@ -87,7 +87,7 @@ public class BuildBean extends AbstractBuildFactory {
 		}
 
 		String head = "";
-		doName = doName.replace("Tab", "");
+		doName = doName.replace("Tab", "")+"DO";
 		String headName = Util.getUpperHumpName(doName);
 		head = doName;
 		map.put("columList", column);

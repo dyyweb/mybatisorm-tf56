@@ -8,6 +8,6 @@ import java.util.Date;
 * JDK-version:  JDK1.7
 * @since  ${date}
 */
-public class ${head}DTO extends ${head}{
+public class ${head}DTO extends ${head}DO{
 
 }

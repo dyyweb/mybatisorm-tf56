@@ -4,8 +4,7 @@ import ${pojoPackage}.${bigDoName};
 import ${daoPackage}.${bigDaoName};
 import ${servicePackage}.${bigServiceName};
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import tf56.spider.base.ResultModel;
 import com.alibaba.dubbo.config.annotation.Service;
@@ -19,8 +18,8 @@ import javax.annotation.Resource;
 * since Date： ${date}
 */
 @Service
+@Slf4j
 public class ${bigServiceImplName} implements ${bigServiceName}{
-private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplName}.class);
 
     @Resource
     private ${bigDaoName} ${minDaoName};
@@ -44,10 +43,10 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             else
                 return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_SUCCESS,"查询成功",list.size(),list,null);
         } catch (IllegalArgumentException e) {
-            logger.error("多条件查询${bigDoName}校验参数异常!",e);
+            log.error("多条件查询${bigDoName}校验参数异常!",e);
            return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_ERROR,"查询参数异常",-1,null,e.getMessage());
         } catch (Exception e) {
-            logger.error("多条件查询${bigDoName}信息异常!", e);
+            log.error("多条件查询${bigDoName}信息异常!", e);
             return new ResultModel<List<${bigDoName}>>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
         }
     }
@@ -67,7 +66,7 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             else
                 return new ResultModel<${bigDoName}>(ResultModel.RESULT_SUCCESS,"查询成功",1,${minDoName}_exist,null);
         } catch (Exception e) {
-           logger.error(e.getMessage(),e);
+           log.error(e.getMessage(),e);
             return new ResultModel<${bigDoName}>(ResultModel.RESULT_ERROR,"查询异常",-1,null,e.getMessage());
         }
     }
@@ -87,10 +86,10 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             if (num < 1) {
                 throw new Exception("sql插入数据为0,请检查各项参数!");
             }
-            logger.info("新增ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功");
+            log.info("新增ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功");
            return new ResultModel<Integer>(ResultModel.RESULT_SUCCESS,"插入成功",-1,num,null);
         }catch (Exception e) {
-           logger.error("新增ID=>[" +1 + "]的ClearJour失败");
+           log.error("新增ID=>[" +1 + "]的ClearJour失败");
             return new ResultModel<Integer>(ResultModel.RESULT_ERROR,e.getMessage(),-1,null,null);
         }
     }
@@ -112,10 +111,10 @@ private static final Logger logger = LoggerFactory.getLogger(${bigServiceImplNam
             if (num < 1) {
                 throw new Exception("sql修改数据为0,请检查各项参数!");
             }
-            logger.info("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功!");
+            log.info("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}成功!");
            return new ResultModel<Integer>(ResultModel.RESULT_SUCCESS,"修改成功",-1,0,null);
         } catch (Exception e) {
-            logger.error("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}信息异常",e);
+            log.error("修改ID=>[" + ${minDoName}.getId() + "]的${bigDoName}信息异常",e);
            return new ResultModel<Integer>(ResultModel.RESULT_ERROR,e.getMessage(),-1,0,null);
         }
     }

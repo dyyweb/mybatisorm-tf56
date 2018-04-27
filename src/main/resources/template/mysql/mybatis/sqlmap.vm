@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${daoPackage}.${tableName}Mapper">
+<mapper namespace="${daoPackage}.${daoTableName}Mapper">
 
     <!-- DengYang-->
     <!-- 约定标准:查询、修改尽可能共用同一个sql，条件约束放在业务层处理-->

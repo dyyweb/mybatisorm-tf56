@@ -41,10 +41,10 @@ public class BuildServiceImpl extends AbstractBuildFactory {
         Table table = tableWapper.getTable();
         String tableName = table.getName();
         String headName = Util.getUpperHumpName(tableName);
-//        String bigDoName = Util.getUpperHumpName(tableName)+"DO";
-        String bigDoName = Util.getUpperHumpName(tableName);
-//        String minDoName = Util.getHumpName(tableName)+"DO";
-        String minDoName = Util.getHumpName(tableName);
+        String bigDoName = Util.getUpperHumpName(tableName)+"DO";
+//        String bigDoName = Util.getUpperHumpName(tableName);
+        String minDoName = Util.getHumpName(tableName)+"DO";
+//        String minDoName = Util.getHumpName(tableName);
         String bigDaoName = Util.getUpperHumpName(tableName)+"Mapper";
         String minDaoName = Util.getHumpName(tableName)+"Mapper";
         String bigServiceName = "I"+Util.getUpperHumpName(tableName)+"Service";

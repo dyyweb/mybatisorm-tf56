@@ -70,10 +70,10 @@ public class BuildDao extends AbstractBuildFactory {
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("daoPackage", daoPackage);
 		map.put("pojoPackage", pojoPackage);
-//		map.put("bigDoName", bigDoName + "DO");
-		map.put("bigDoName", bigDoName);
-//		map.put("minDoName", minDoName + "DO");
-		map.put("minDoName", minDoName);
+		map.put("bigDoName", bigDoName + "DO");
+//		map.put("bigDoName", bigDoName);
+		map.put("minDoName", minDoName + "DO");
+//		map.put("minDoName", minDoName);
 		map.put("bigDaoName", bigDaoName);
 		map.put("headName", headName);
 		map.put("idType", idType);
